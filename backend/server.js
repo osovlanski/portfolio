@@ -13,6 +13,18 @@ app.use(express.json());
 const db = getDb();
 initializeSchema(db);
 
+// Auto-seed if database is empty (first deploy)
+const profileExists = db.prepare("SELECT COUNT(*) as count FROM profile").get();
+if (profileExists.count === 0) {
+  try {
+    const { seed } = require("./seed");
+    seed();
+    console.log("Database auto-seeded on first run.");
+  } catch {
+    console.log("No seed data found or seed already applied.");
+  }
+}
+
 // GET /api/profile
 app.get("/api/profile", (req, res) => {
   const profile = db.prepare("SELECT * FROM profile WHERE id = 1").get();

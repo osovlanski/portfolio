@@ -128,4 +128,9 @@ function seed() {
   console.log("Database seeded successfully.");
 }
 
-seed();
+// Run directly when called as script, export for programmatic use
+if (require.main === module) {
+  seed();
+}
+
+module.exports = { seed };
