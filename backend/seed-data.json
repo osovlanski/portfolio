@@ -1,0 +1,126 @@
+{
+  "profile": {
+    "name": "Itay Osovlanski",
+    "title": "Senior Backend Engineer | Distributed Systems & Cloud",
+    "email": "itayosov@gmail.com",
+    "phone": "+972-54-567-7528",
+    "location": "Tel Aviv, Israel",
+    "linkedin": "https://www.linkedin.com/in/itay-osovlanski/",
+    "github": "https://github.com/osovlanski",
+    "summary": "Senior Backend Engineer with 5+ years designing and scaling distributed systems in fintech. Expert in microservices architecture achieving 99.99% availability, transaction processing for 10k+ concurrent users, and security-first development. Leverages AI-assisted development tools (Claude Code, Cursor) to accelerate delivery while maintaining code quality. Military background in elite cybersecurity unit."
+  },
+  "experience": [
+    {
+      "role": "Full Stack Developer",
+      "company": "Payoneer",
+      "location": "Tel Aviv, Israel",
+      "startDate": "September 2021",
+      "endDate": "Present",
+      "description": "Global fintech platform enabling cross-border payments for millions of businesses worldwide.",
+      "highlights": [
+        "Designed and implemented C#/Python microservices ensuring 99.99% availability for global payment processing.",
+        "Integrated payment gateways and banking APIs with full AML/KYC compliance and secure transaction flows.",
+        "Reduced transaction latency by 20% through backend optimization, supporting 10k+ concurrent users.",
+        "Leveraged Claude Code and Cursor IDE to accelerate development cycles while maintaining code quality standards."
+      ]
+    },
+    {
+      "role": "Software Developer",
+      "company": "SolidCAM Israel",
+      "location": "Israel",
+      "startDate": "2021",
+      "endDate": "2021",
+      "description": "Leading CAD/CAM software company for CNC machining and manufacturing automation.",
+      "highlights": [
+        "Developed Python-based data pipelines for AI-driven manufacturing automation.",
+        "Implemented DevOps foundations with Kubernetes, Docker, and CI/CD pipelines.",
+        "Accelerated AI prototyping through optimized data preparation and analysis workflows."
+      ]
+    },
+    {
+      "role": "Software Developer",
+      "company": "Efcom",
+      "location": "Israel",
+      "startDate": "2016",
+      "endDate": "2018",
+      "description": "Technology company focused on IoT solutions and mobile applications.",
+      "highlights": [
+        "Built AWS-based backend services and web tools for distributed worker management.",
+        "Developed automated IoT testing frameworks in C#/Arduino, reducing manual QA by 30%.",
+        "Created Android applications in Java with reliable backend integration."
+      ]
+    },
+    {
+      "role": "QA & Automation Developer",
+      "company": "IDF - Matzov (Telecom Division)",
+      "location": "Israel",
+      "startDate": "2012",
+      "endDate": "2015",
+      "description": "Elite encryption & cybersecurity defense unit in Israeli Defense Forces.",
+      "highlights": [
+        "Served in elite encryption & cybersecurity defense unit handling classified communications.",
+        "Built automated testing frameworks for web/data systems supporting mission-critical defense communications.",
+        "Developed end-to-end testing infrastructure for secure, high-reliability systems with zero tolerance for failures.",
+        "Gained deep expertise in security protocols, encryption standards, and defense-grade quality assurance."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Ben-Gurion University",
+      "degree": "B.Sc. Computer Science",
+      "location": "Beer Sheva, Israel",
+      "startDate": "2018",
+      "endDate": "2021",
+      "highlights": [
+        "Elective work in reinforcement learning, computer vision, and a blockchain capstone project."
+      ]
+    },
+    {
+      "institution": "Ohel Shem High School",
+      "degree": "Gifted Children Program - Computer Science Track",
+      "location": "Ramat Gan, Israel",
+      "startDate": "2008",
+      "endDate": "2012",
+      "highlights": []
+    }
+  ],
+  "skills": [
+    {
+      "category": "Backend & Distributed Systems",
+      "items": ["C#", "Python", "Java", "Microservices", "Distributed Systems", "REST APIs"]
+    },
+    {
+      "category": "Cloud & DevOps",
+      "items": ["Kubernetes", "Docker", "CI/CD", "Azure", "AWS"]
+    },
+    {
+      "category": "Databases",
+      "items": ["SQL", "MySQL", "MongoDB", "Redis", "PostgreSQL"]
+    },
+    {
+      "category": "AI-Assisted Development",
+      "items": ["Claude Code", "Cursor IDE", "Agentic Workflows", "Prompt Engineering"]
+    },
+    {
+      "category": "Security & Compliance",
+      "items": ["AML/KYC Compliance", "Data Integrity", "Secure Transaction Flows"]
+    },
+    {
+      "category": "Frontend & Mobile",
+      "items": ["React", "JavaScript", "TypeScript", "Android"]
+    }
+  ],
+  "softSkills": [
+    "System Design",
+    "Performance Optimization",
+    "Cross-functional Collaboration",
+    "Agile Methodologies",
+    "Technical Leadership",
+    "Code Review"
+  ],
+  "languages": [
+    { "language": "Hebrew", "level": "Native" },
+    { "language": "English", "level": "Fluent" }
+  ]
+}
