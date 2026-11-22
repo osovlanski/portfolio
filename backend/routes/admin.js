@@ -1,3 +1,4 @@
+const crypto = require("crypto");
 const express = require("express");
 const jwt = require("jsonwebtoken");
 const { verifyAdmin } = require("../middleware/auth");
@@ -6,9 +7,18 @@ const { getDb } = require("../db");
 const router = express.Router();
 
 // --- Login (no auth required) ---
+function passwordMatches(candidate) {
+  const expected = process.env.ADMIN_PASSWORD;
+  if (typeof candidate !== "string" || !expected) return false;
+  // Hash both sides so lengths match, then compare in constant time.
+  const a = crypto.createHash("sha256").update(candidate).digest();
+  const b = crypto.createHash("sha256").update(expected).digest();
+  return crypto.timingSafeEqual(a, b);
+}
+
 router.post("/login", (req, res) => {
-  const { password } = req.body;
-  if (!password || password !== process.env.ADMIN_PASSWORD) {
+  const { password } = req.body || {};
+  if (!passwordMatches(password)) {
     return res.status(401).json({ error: "Invalid password" });
   }
 
@@ -24,11 +34,11 @@ router.use(verifyAdmin);
 // --- Profile ---
 router.put("/profile", (req, res) => {
   const db = getDb();
-  const { name, title, email, phone, location, linkedin, github, summary } =
-    req.body;
+  // The phone number is intentionally not editable here: it is never public.
+  const { name, title, email, location, linkedin, github, summary } = req.body;
   db.prepare(
-    `UPDATE profile SET name = ?, title = ?, email = ?, phone = ?, location = ?, linkedin = ?, github = ?, summary = ? WHERE id = 1`
-  ).run(name, title, email, phone, location, linkedin, github, summary);
+    `UPDATE profile SET name = ?, title = ?, email = ?, location = ?, linkedin = ?, github = ?, summary = ? WHERE id = 1`
+  ).run(name, title, email, location, linkedin, github, summary);
   res.json({ success: true });
 });
 

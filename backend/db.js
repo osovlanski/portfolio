@@ -2,15 +2,17 @@ const Database = require("better-sqlite3");
 const fs = require("fs");
 const path = require("path");
 
-const DB_PATH = process.env.DATABASE_PATH || path.join(__dirname, "portfolio.db");
-
-// Ensure parent directory exists (for Railway volume mounts)
-const dbDir = path.dirname(DB_PATH);
-if (!fs.existsSync(dbDir)) {
-  fs.mkdirSync(dbDir, { recursive: true });
+function getDbPath() {
+  return process.env.DATABASE_PATH || path.join(__dirname, "portfolio.db");
 }
 
 function getDb() {
+  const DB_PATH = getDbPath();
+  // Ensure parent directory exists (for Railway volume mounts)
+  const dbDir = path.dirname(DB_PATH);
+  if (!fs.existsSync(dbDir)) {
+    fs.mkdirSync(dbDir, { recursive: true });
+  }
   const db = new Database(DB_PATH);
   db.pragma("journal_mode = WAL");
   db.pragma("foreign_keys = ON");
@@ -87,7 +89,30 @@ function initializeSchema(db) {
       name TEXT NOT NULL,
       level TEXT NOT NULL
     );
+
+    CREATE TABLE IF NOT EXISTS project (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      name TEXT NOT NULL,
+      summary TEXT NOT NULL,
+      repo_url TEXT,
+      status TEXT,
+      sort_order INTEGER DEFAULT 0
+    );
+
+    CREATE TABLE IF NOT EXISTS meta (
+      key TEXT PRIMARY KEY,
+      value TEXT
+    );
   `);
+
+  // Additive migration: formal title vs functional positioning.
+  const experienceColumns = db
+    .prepare("PRAGMA table_info(experience)")
+    .all()
+    .map((column) => column.name);
+  if (!experienceColumns.includes("functional_title")) {
+    db.exec("ALTER TABLE experience ADD COLUMN functional_title TEXT");
+  }
 }
 
-module.exports = { getDb, initializeSchema };
+module.exports = { getDb, getDbPath, initializeSchema };

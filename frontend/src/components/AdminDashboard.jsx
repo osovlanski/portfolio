@@ -11,20 +11,29 @@ export default function AdminDashboard({ token, onLogout }) {
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState("Profile");
 
+  const [reloadKey, setReloadKey] = useState(0);
+
   function fetchData() {
     setLoading(true);
-    fetch("/api/all")
-      .then((response) => response.json())
-      .then((json) => {
-        setData(json);
-        setLoading(false);
-      })
-      .catch(() => setLoading(false));
+    setReloadKey((key) => key + 1);
   }
 
   useEffect(() => {
-    fetchData();
-  }, []);
+    let cancelled = false;
+    fetch("/api/all")
+      .then((response) => response.json())
+      .then((json) => {
+        if (cancelled) return;
+        setData(json);
+        setLoading(false);
+      })
+      .catch(() => {
+        if (!cancelled) setLoading(false);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [reloadKey]);
 
   function handleLogout() {
     localStorage.removeItem("admin_token");

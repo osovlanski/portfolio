@@ -6,6 +6,7 @@
     "start": "cd backend && node server.js",
     "seed": "cd backend && node seed.js",
     "dev:backend": "cd backend && node server.js",
-    "dev:frontend": "cd frontend && npm run dev"
+    "dev:frontend": "cd frontend && npm run dev",
+    "test": "cd backend && npm test && cd ../frontend && npm run lint && npm run build"
   }
 }

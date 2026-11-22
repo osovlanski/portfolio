@@ -1,27 +1,28 @@
 {
+  "contentVersion": "2026-11-22.1",
   "profile": {
     "name": "Itay Osovlanski",
-    "title": "Senior Backend Engineer | Distributed Systems & Cloud",
+    "title": "Senior Backend Engineer · Distributed Systems & AI Infrastructure",
     "email": "itayosov@gmail.com",
-    "phone": "+972-54-567-7528",
     "location": "Tel Aviv, Israel",
     "linkedin": "https://www.linkedin.com/in/itay-osovlanski/",
     "github": "https://github.com/osovlanski",
-    "summary": "Senior Backend Engineer with 5+ years designing and scaling distributed systems in fintech. Expert in microservices architecture achieving 99.99% availability, transaction processing for 10k+ concurrent users, and security-first development. Leverages AI-assisted development tools (Claude Code, Cursor) to accelerate delivery while maintaining code quality. Military background in elite cybersecurity unit."
+    "summary": "Backend-focused engineer with 5+ years at Payoneer designing fintech services and regulatory infrastructure. Experienced in .NET, distributed systems, Kubernetes and event-driven architectures. Builds AI-agent platforms with routing, checkpoints, handoffs and evaluation, bringing production engineering discipline to practical AI systems."
   },
   "experience": [
     {
       "role": "Full Stack Developer",
+      "functionalTitle": "Backend & License Infrastructure",
       "company": "Payoneer",
       "location": "Tel Aviv, Israel",
       "startDate": "September 2021",
       "endDate": "Present",
-      "description": "Global fintech platform enabling cross-border payments for millions of businesses worldwide.",
+      "description": "License Infrastructure & Regulatory Systems · Onboarding, Legal Entity & Periodic Review",
       "highlights": [
-        "Designed and implemented C#/Python microservices ensuring 99.99% availability for global payment processing.",
-        "Integrated payment gateways and banking APIs with full AML/KYC compliance and secure transaction flows.",
-        "Reduced transaction latency by 20% through backend optimization, supporting 10k+ concurrent users.",
-        "Leveraged Claude Code and Cursor IDE to accelerate development cycles while maintaining code quality standards."
+        "License Infrastructure: building shared infrastructure to classify customers, payments and transactions and apply license-specific regulatory rules across workflows.",
+        "Onboarding: developed .NET services and background jobs for company onboarding, legal-entity workflows and periodic review, using SQL Server, MongoDB and Redis.",
+        "Migrated backend services from IIS to Kubernetes via Argo CD, adding health checks, structured logging and resilient background execution.",
+        "Built event-driven integrations with Kafka/Avro and RabbitMQ, plus distributed coordination and job-recovery mechanisms."
       ]
     },
     {
@@ -30,11 +31,9 @@
       "location": "Israel",
       "startDate": "2021",
       "endDate": "2021",
-      "description": "Leading CAD/CAM software company for CNC machining and manufacturing automation.",
+      "description": "CAD/CAM software for CNC machining and manufacturing.",
       "highlights": [
-        "Developed Python-based data pipelines for AI-driven manufacturing automation.",
-        "Implemented DevOps foundations with Kubernetes, Docker, and CI/CD pipelines.",
-        "Accelerated AI prototyping through optimized data preparation and analysis workflows."
+        "Developed Python data-processing and automation workflows for CAD/CAM and manufacturing systems."
       ]
     },
     {
@@ -45,23 +44,18 @@
       "endDate": "2018",
       "description": "Technology company focused on IoT solutions and mobile applications.",
       "highlights": [
-        "Built AWS-based backend services and web tools for distributed worker management.",
-        "Developed automated IoT testing frameworks in C#/Arduino, reducing manual QA by 30%.",
-        "Created Android applications in Java with reliable backend integration."
+        "Developed AWS-backed services, C#/Arduino IoT test automation and Java/Android integrations."
       ]
     },
     {
       "role": "QA & Automation Developer",
-      "company": "IDF - Matzov (Telecom Division)",
+      "company": "IDF - MATZOV",
       "location": "Israel",
       "startDate": "2012",
       "endDate": "2015",
-      "description": "Elite encryption & cybersecurity defense unit in Israeli Defense Forces.",
+      "description": "Israel Defense Forces.",
       "highlights": [
-        "Served in elite encryption & cybersecurity defense unit handling classified communications.",
-        "Built automated testing frameworks for web/data systems supporting mission-critical defense communications.",
-        "Developed end-to-end testing infrastructure for secure, high-reliability systems with zero tolerance for failures.",
-        "Gained deep expertise in security protocols, encryption standards, and defense-grade quality assurance."
+        "Built automated testing frameworks for secure, mission-critical communications systems."
       ]
     }
   ],
@@ -87,40 +81,44 @@
   ],
   "skills": [
     {
-      "category": "Backend & Distributed Systems",
-      "items": ["C#", "Python", "Java", "Microservices", "Distributed Systems", "REST APIs"]
+      "category": "Backend & Architecture",
+      "items": ["C# / .NET", "Python", "TypeScript", "Microservices", "REST APIs", "Event-driven systems"]
     },
     {
-      "category": "Cloud & DevOps",
-      "items": ["Kubernetes", "Docker", "CI/CD", "Azure", "AWS"]
+      "category": "Messaging & Data",
+      "items": ["Kafka", "RabbitMQ", "SQL Server", "MongoDB", "Redis", "PostgreSQL (personal projects)"]
     },
     {
-      "category": "Databases",
-      "items": ["SQL", "MySQL", "MongoDB", "Redis", "PostgreSQL"]
+      "category": "Platform & Delivery",
+      "items": ["Kubernetes", "Docker", "Argo CD", "CI/CD", "AWS"]
     },
     {
-      "category": "AI-Assisted Development",
-      "items": ["Claude Code", "Cursor IDE", "Agentic Workflows", "Prompt Engineering"]
-    },
-    {
-      "category": "Security & Compliance",
-      "items": ["AML/KYC Compliance", "Data Integrity", "Secure Transaction Flows"]
-    },
-    {
-      "category": "Frontend & Mobile",
-      "items": ["React", "JavaScript", "TypeScript", "Android"]
+      "category": "Agentic AI (personal projects)",
+      "items": ["Agent orchestration", "Evaluations", "Claude Code", "Codex", "Cursor"]
     }
   ],
   "softSkills": [
     "System Design",
-    "Performance Optimization",
+    "Code Review",
     "Cross-functional Collaboration",
-    "Agile Methodologies",
-    "Technical Leadership",
-    "Code Review"
+    "Agile Methodologies"
   ],
   "languages": [
     { "language": "Hebrew", "level": "Native" },
     { "language": "English", "level": "Fluent" }
+  ],
+  "projects": [
+    {
+      "name": "Agentic OS",
+      "summary": "Local-first, multi-provider AI control plane: explainable task routing, a normalized execution event timeline, checkpoints and cross-assistant handoffs, quota-aware failover and deterministic tests. Later design phases in the repository are proposals, not shipped features.",
+      "repoUrl": "https://github.com/osovlanski/ai-control-plan",
+      "status": "Personal project · active"
+    },
+    {
+      "name": "Pocketknife",
+      "summary": "TypeScript multi-agent application (Express, Prisma/PostgreSQL, React) with job discovery, CV matching, interview and system-design practice, and learning tools.",
+      "repoUrl": "https://github.com/osovlanski/pocketknife",
+      "status": "Personal project · prototype"
+    }
   ]
 }
