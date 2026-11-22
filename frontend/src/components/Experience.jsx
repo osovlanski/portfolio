@@ -22,9 +22,16 @@ export default function Experience({ experience }) {
 
                 <div className="bg-surface rounded-xl p-6 border border-slate-100">
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
-                    <h3 className="text-xl font-semibold text-text">
-                      {exp.role}
-                    </h3>
+                    <div>
+                      <h3 className="text-xl font-semibold text-text">
+                        {exp.role}
+                      </h3>
+                      {exp.functional_title && (
+                        <p className="text-sm text-text-secondary">
+                          {exp.functional_title}
+                        </p>
+                      )}
+                    </div>
                     <span className="text-sm text-text-secondary font-medium">
                       {exp.start_date} &mdash; {exp.end_date}
                     </span>

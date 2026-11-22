@@ -47,7 +47,26 @@ npm start       # Starts API on http://localhost:3001
 | `GET /api/experience` | Work experience with highlights|
 | `GET /api/education`  | Education history              |
 | `GET /api/skills`     | Technical and soft skills      |
+| `GET /api/projects`   | Public project cards           |
 | `GET /api/all`        | All data in a single response  |
+| `GET /health`         | Liveness and current content hash |
+
+**Content source of truth:** `backend/seed-data.json`. On boot the server compares the
+SHA-256 of that file with `meta.content_hash` in the database. If they differ (or the
+database is empty) it reseeds. Before reseeding a non-empty database it copies the file to
+`<DATABASE_PATH>.bak-<previous hash prefix>` (last 3 kept). Edits made in the admin panel are
+overwritten whenever the seed file changes. `GET /health` returns the current `contentHash`.
+
+**Rollback:** redeploy the previous commit. The hash changes back, so the old content is
+reseeded automatically. If the previous commit predates hash tracking and a volume holds the
+database, restore the matching `.bak-*` file instead.
+
+**Privacy:** the phone number is not stored or served. Public routes use explicit column lists.
+
+**Admin panel:** disabled by default in production (`ADMIN_ENABLED=true` enables it). In production
+the server refuses to start with admin enabled and a missing or `changeme` `ADMIN_PASSWORD`/`JWT_SECRET`.
+
+**Tests:** `npm test` at the repo root runs backend tests, frontend lint and the production build.
 
 ### 2. Frontend
 
